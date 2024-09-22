@@ -1,4 +1,3 @@
-MYExtension for JupyterLab
 MYExtension is a JupyterLab extension designed for checking HTML, CSS, and JavaScript code directly within computational notebooks. It provides students with feedback on their code, using popular linting tools to analyze and suggest improvements. The backend is powered by Python, integrating Stylelint, JSHint, and Tidy to perform the code checks, while the frontend uses TypeScript to create a user-friendly interface and toolbar button.
 
 // Features
