@@ -1,99 +1,78 @@
-# myextension
+MYExtension for JupyterLab
+MYExtension is a JupyterLab extension designed for checking HTML, CSS, and JavaScript code directly within computational notebooks. It provides students with feedback on their code, using popular linting tools to analyze and suggest improvements. The backend is powered by Python, integrating Stylelint, JSHint, and Tidy to perform the code checks, while the frontend uses TypeScript to create a user-friendly interface and toolbar button.
 
-[![Github Actions Status](https://github.com/usman1496/Code_Checker.git/workflows/Build/badge.svg)](https://github.com/usman1496/Code_Checker.git/actions/workflows/build.yml)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/usman1496/Code_Checker.git/main?urlpath=lab)
+// Features
+HTML, CSS, and JavaScript code validation and feedback.
+Displays results directly in the notebook's output area.
+Python backend integrating:
+1) Stylelint for CSS validation.
+2) JSHint for JavaScript validation.
+3) Tidy for HTML validation.
+4) Easy-to-use "Check Code" button in the JupyterLab notebook toolbar.
+//Installation
+1. Clone the Repository
+bash
+Copy code
+git clone https://github.com/usman1496/Code_Checker.git
+2. Navigate to the src Folder
+Go to the src folder where the extension files are located:
 
+bash
+Copy code
+cd Code_Checker/src
+3. Install Required Linting Tools
+To run the code checks, you must install the following tools locally on your system:
 
-A Jupyter Extension for Code Hinting and linting.
+Tidy (for HTML validation)
+Stylelint (for CSS validation)
+JSHint (for JavaScript validation)
+Install Tidy:
+On Linux:
 
-## Requirements
+bash
+Copy code
+sudo apt-get install tidy
+On macOS:
 
-- JupyterLab >= 4.0.0
+bash
+Copy code
+brew install tidy-html5
+On Windows, download the executable from Tidy's official website.
 
-## Install
+Install Stylelint:
+bash
+Copy code
+npm install -g stylelint
+Install JSHint:
+bash
+Copy code
+npm install -g jshint
+4. Build and Install the Extension
+Rebuild the extension using the following command:
 
-To install the extension, execute:
-
-```bash
-pip install myextension
-```
-
-## Uninstall
-
-To remove the extension, execute:
-
-```bash
-pip uninstall myextension
-```
-
-## Contributing
-
-### Development install
-
-Note: You will need NodeJS to build the extension package.
-
-The `jlpm` command is JupyterLab's pinned version of
-[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
-`yarn` or `npm` in lieu of `jlpm` below.
-
-```bash
-# Clone the repo to your local environment
-# Change directory to the myextension directory
-# Install package in development mode
-pip install -e "."
-# Link your development version of the extension with JupyterLab
-jupyter labextension develop . --overwrite
-# Rebuild extension Typescript source after making changes
+bash
+Copy code
 jlpm build
-```
+Install the extension in JupyterLab:
 
-You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
+bash
+Copy code
+jupyter lab extension install .
+5. Run JupyterLab
+Once the tools are installed, you can run JupyterLab from the src folder:
 
-```bash
-# Watch the source directory in one terminal, automatically rebuilding when needed
-jlpm watch
-# Run JupyterLab in another terminal
+bash
+Copy code
 jupyter lab
-```
+This will start JupyterLab, and the "Check Code" button will be available in the notebook toolbar.
 
-With the watch command running, every saved change will immediately be built locally and available in your running JupyterLab. Refresh JupyterLab to load the change in your browser (you may need to wait several seconds for the extension to be rebuilt).
-
-By default, the `jlpm build` command generates the source maps for this extension to make it easier to debug using the browser dev tools. To also generate source maps for the JupyterLab core extensions, you can run the following command:
-
-```bash
-jupyter lab build --minimize=False
-```
-
-### Development uninstall
-
-```bash
-pip uninstall myextension
-```
-
-In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
-command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlink named `myextension` within that folder.
-
-### Testing the extension
-
-#### Frontend tests
-
-This extension is using [Jest](https://jestjs.io/) for JavaScript code testing.
-
-To execute them, execute:
-
-```sh
-jlpm
-jlpm test
-```
-
-#### Integration tests
-
-This extension uses [Playwright](https://playwright.dev/docs/intro) for the integration tests (aka user level tests).
-More precisely, the JupyterLab helper [Galata](https://github.com/jupyterlab/jupyterlab/tree/master/galata) is used to handle testing the extension in JupyterLab.
-
-More information are provided within the [ui-tests](./ui-tests/README.md) README.
-
-### Packaging the extension
-
-See [RELEASE](RELEASE.md)
+How It Works
+Open a JupyterLab notebook and write some HTML, CSS, or JavaScript code in a code cell.
+Click the "Check Code" button in the notebook toolbar.
+The extension will automatically detect the type of code (HTML, CSS, or JS) and run the appropriate linter (Tidy for HTML, Stylelint for CSS, and JSHint for JS).
+The linting results will appear in the output area below the code cell, providing feedback and suggestions for improvement.
+Development
+The frontend of this extension is developed in TypeScript, which creates a button in the JupyterLab notebook toolbar.
+The backend is implemented in Python and interacts with the linting tools to validate code and return feedback.
+Contributing
+Feel free to contribute by opening issues or submitting pull requests!
