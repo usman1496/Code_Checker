@@ -1,77 +1,82 @@
-MYExtension is a JupyterLab extension designed for checking HTML, CSS, and JavaScript code directly within computational notebooks. It provides students with feedback on their code, using popular linting tools to analyze and suggest improvements. The backend is powered by Python, integrating Stylelint, JSHint, and Tidy to perform the code checks, while the frontend uses TypeScript to create a user-friendly interface and toolbar button.
+Assignment Checker is a JupyterLab extension designed to help students check their HTML, CSS, and JavaScript code. The extension provides immediate feedback by evaluating code against custom-defined rules and uses tools such as Stylelint, JSHint, and Tidy to catch common errors and enforce best practices. The extension integrates a Python backend with custom linting logic, making it easy for students to write clean, valid code.
 
-// Features
-HTML, CSS, and JavaScript code validation and feedback.
-Displays results directly in the notebook's output area.
-Python backend integrating:
-1) Stylelint for CSS validation.
-2) JSHint for JavaScript validation.
-3) Tidy for HTML validation.
-4) Easy-to-use "Check Code" button in the JupyterLab notebook toolbar.
-//Installation
-1. Clone the Repository
+Features
+HTML, CSS, and JavaScript Validation: Automatically checks code quality and syntax issues in HTML, CSS, and JavaScript files.
+Custom Rule Enforcement: The extension comes with task-related rules defined by instructors, ensuring students follow the specific guidelines for their assignments.
+Integrated Tools:
+Tidy: Used for validating HTML files and cleaning up the structure.
+Stylelint: Ensures adherence to CSS coding standards and checks for common errors.
+JSHint: Evaluates JavaScript code, flagging potential bugs and issues.
+User-Friendly Interface: Adds a Check Code button to the notebook toolbar for quick code validation.
+Requirements
+Before running the extension, ensure you have the following tools installed locally:
+
+Tidy: To validate HTML files.
+Stylelint: For CSS validation.
+JSHint: For JavaScript linting.
+Install these tools locally by running:
+
+bash
+Copy code
+# Install tidy (HTML Linter)
+sudo apt-get install tidy  # For Linux
+brew install tidy-html5    # For macOS
+# For Windows, download the executable from https://github.com/htacg/tidy-html5
+
+# Install Stylelint (CSS Linter)
+npm install -g stylelint
+
+# Install JSHint (JavaScript Linter)
+npm install -g jshint
+Installation
+Step 1: Clone the Repository
+First, clone the repository to your local machine:
+
 bash
 Copy code
 git clone https://github.com/usman1496/Code_Checker.git
-2. Navigate to the src Folder
-Go to the src folder where the extension files are located:
-
-bash
-Copy code
 cd Code_Checker/src
-3. Install Required Linting Tools
-To run the code checks, you must install the following tools locally on your system:
-
-Tidy (for HTML validation)
-Stylelint (for CSS validation)
-JSHint (for JavaScript validation)
-Install Tidy:
-On Linux:
+Step 2: Build the Extension
+Inside the src folder, run the following commands to build the extension:
 
 bash
 Copy code
-sudo apt-get install tidy
-On macOS:
-
-bash
-Copy code
-brew install tidy-html5
-On Windows, download the executable from Tidy's official website.
-
-Install Stylelint:
-bash
-Copy code
-npm install -g stylelint
-Install JSHint:
-bash
-Copy code
-npm install -g jshint
-4. Build and Install the Extension
-Rebuild the extension using the following command:
-
-bash
-Copy code
+jlpm install
 jlpm build
-Install the extension in JupyterLab:
+Step 3: Install the Extension in JupyterLab
+Once the extension is built, install it in JupyterLab by running:
 
 bash
 Copy code
 jupyter lab extension install .
-5. Run JupyterLab
-Once the tools are installed, you can run JupyterLab from the src folder:
+Step 4: Run JupyterLab
+Now that the extension is installed, start JupyterLab:
 
 bash
 Copy code
 jupyter lab
-This will start JupyterLab, and the "Check Code" button will be available in the notebook toolbar.
+Usage
+Once inside JupyterLab, follow these steps to check your code:
 
-How It Works
-Open a JupyterLab notebook and write some HTML, CSS, or JavaScript code in a code cell.
-Click the "Check Code" button in the notebook toolbar.
-The extension will automatically detect the type of code (HTML, CSS, or JS) and run the appropriate linter (Tidy for HTML, Stylelint for CSS, and JSHint for JS).
-The linting results will appear in the output area below the code cell, providing feedback and suggestions for improvement.
+Open a notebook and create a code cell.
+Write your HTML, CSS, or JavaScript code in the cell.
+Click the Check Code button in the toolbar.
+The extension will run your code through the linting process and display feedback in the notebook’s output section.
+Custom Rule Checking
+This extension goes beyond general linting by checking your code against custom-defined rules, which are tailored to specific tasks or assignments. These rules ensure that your code not only adheres to general best practices but also meets the requirements set by the instructor for the task at hand.
+
+Example Output
+After clicking Check Code, you will see the linting results in the output, which may include:
+
+Warnings or errors for non-compliant code.
+Suggestions to improve the structure or fix bugs.
+Feedback about missing or incorrect implementations based on custom rules.
 Development
-The frontend of this extension is developed in TypeScript, which creates a button in the JupyterLab notebook toolbar.
-The backend is implemented in Python and interacts with the linting tools to validate code and return feedback.
-Contributing
-Feel free to contribute by opening issues or submitting pull requests!
+If you'd like to contribute to this extension or make changes:
+
+Ensure you have Node.js and npm installed.
+Clone the repository and make your changes in the src folder.
+Build the project using jlpm build and install it using jupyter lab extension install ..
+Important Notes
+Custom linting rules for HTML, CSS, and JavaScript are defined in the backend Python code. This ensures consistency in checking assignment-related requirements.
+The backend Python code integrates with the linter tools to process and format the results, making the feedback user-friendly.
