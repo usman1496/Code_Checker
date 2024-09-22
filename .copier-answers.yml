@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.3.5
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: ''
+author_name: Usman
+has_binder: true
+has_settings: false
+kind: frontend
+labextension_name: myextension
+project_short_description: A Jupyter Extension for Code Hinting and linting.
+python_name: myextension
+repository: https://github.com/usman1496/Code_Checker.git
+test: true
+

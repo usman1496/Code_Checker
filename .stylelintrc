@@ -1,0 +1,19 @@
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "declaration-block-trailing-semicolon": "always",
+      "block-closing-brace-newline-after": "always",
+      "block-closing-brace-newline-before": "always",
+      "block-opening-brace-newline-after": "always",
+      "block-opening-brace-newline-before": "always",
+      "no-empty-source": true,
+      "color-no-invalid-hex": true,
+      "font-family-no-duplicate-names": true,
+      "function-calc-no-unspaced-operator": true,
+      "function-url-no-scheme-relative": true,
+      "no-descending-specificity": true,
+      "no-duplicate-selectors": true,
+      "selector-max-id": 0
+    }
+  }
+  
